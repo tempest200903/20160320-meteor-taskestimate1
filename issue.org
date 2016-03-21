@@ -5,5 +5,8 @@
 - コレクション Tasks を作る。
 ** %3 Add tasks form
 - Task を追加するフォーム。
-** %4 Remote tassk form
+** %4 Remote task form
 - Task を削除するフォーム。
+** %5 Task has estimate time
+- Task は見積もり時間を持つ。
+

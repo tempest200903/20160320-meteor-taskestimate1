@@ -18,7 +18,8 @@ if (Meteor.isClient) {
 	    Tasks.insert({
 		owner: Meteor.userId(),
 		createdAt: new Date(),
-		title: text
+		title: text,
+		estimateTime: 0
 	    });
 	    event.target.text.value = "";
 	},
@@ -29,6 +30,11 @@ if (Meteor.isClient) {
 	},
 	"click .delete": function () {
 	    Tasks.remove(this._id);
+	},
+	"change .estimateTime": function () {
+	    Tasks.update(this._id, {
+		$set: {estimateTime: event.target.value}
+	    });
 	}
     });
 }

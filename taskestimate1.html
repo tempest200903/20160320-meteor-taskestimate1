@@ -10,17 +10,26 @@
     <input type="text" name="text" placeholder="Type to add new tasks" />
   </form>
   <h2>tasks</h2>
-  <ul>
+  <table>
+    <tr>
+      <th>title</th>
+      <th>estimate time</th>
+    </tr>
     {{#each tasks}}
     {{> task}}
     {{/each}}
-  </ul>
+  </table>
 </body>
 
 <template name="task">
-  <li class="{{#if checked}}checked{{/if}}">
-    <button class="delete">&times;</button>
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-    <span class="text">{{title}}</span>
-  </li>
+  <tr>
+    <td class="{{#if checked}}checked{{/if}}">
+      <button class="delete">&times;</button>
+      <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+      <span class="text">{{title}}</span>
+    </td>
+    <td>
+      <input class="estimateTime" value="{{estimateTime}}">
+    </td>
+  </tr>
 </template>
