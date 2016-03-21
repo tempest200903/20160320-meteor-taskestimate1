@@ -3,12 +3,43 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>task list</h1>
 
-  {{> hello}}
+  <p>Learning http://docs.meteor.com/#/basic/Template-helpers</p>
+
+  <h2>welcomePage</h2>
+  {{>welcomePage}}
+
+  <h2>nametag</h2>
+  {{>nametag}}
+
+  <h2>profilePage</h2>
+  {{>profilePage}}
+
+  <h2>post</h2>
+  {{>post}}
 </body>
 
 <template name="hello">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="welcomePage">
+  <p>Welcome to my website!</p>
+  {{#each people}}
+    {{> nametag}}
+  {{/each}}
+</template>
+
+<template name="nametag">
+  <p>My name is {{name}}.</p>
+</template>
+
+<template name="profilePage">
+  <p>profilePage for {{username}}</p>
+</template>
+
+<template name="post">
+  <p>There are {{commentCount 3}}.</p>
 </template>
