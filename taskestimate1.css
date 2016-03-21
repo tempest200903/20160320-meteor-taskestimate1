@@ -1,1 +1,10 @@
 /* CSS declarations go here */
+
+.taskPackages { 
+    float: left;
+    background-color: #ff00ff;
+}
+.tasks { 
+    float: right;
+    background-color: #88ff00;
+}

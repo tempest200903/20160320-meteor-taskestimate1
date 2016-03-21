@@ -9,4 +9,11 @@
 - Task を削除するフォーム。
 ** %5 Task has estimate time
 - Task は見積もり時間を持つ。
-
+** %6 TaskPackage has some tasks
+- TaskPackage は Task の集合を持つ。
+- Mongo.Collection で作った2つのコレクションに、一対多の関連を持たせるにはどうすればいい？
+- src
+#+BEGIN_EXAMPLE
+Tasks = new Mongo.Collection("tasks");
+TaskPackages = new Mongo.Collection("taskPackages");
+#+END_EXAMPLE

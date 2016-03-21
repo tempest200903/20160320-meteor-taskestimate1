@@ -1,4 +1,5 @@
 Tasks = new Mongo.Collection("tasks");
+TaskPackages = new Mongo.Collection("taskPackages");
 
 if (Meteor.isClient) {
     Accounts.ui.config({
@@ -8,10 +9,23 @@ if (Meteor.isClient) {
 	Template.body.helpers({
 	    tasks: function () {
 		return Tasks.find({});
+	    },
+	    taskPackages: function () {
+		return TaskPackages.find({});
 	    }
 	});
     }
     Template.body.events({
+	"submit .new-task-package": function (event) {
+	    event.preventDefault();
+	    var text = event.target.text.value;
+	    TaskPackages.insert({
+		owner: Meteor.userId(),
+		createdAt: new Date(),
+		title: text
+	    });
+	    event.target.text.value = "";
+	},
 	"submit .new-task": function (event) {
 	    event.preventDefault();
 	    var text = event.target.text.value;

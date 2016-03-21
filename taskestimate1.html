@@ -3,23 +3,65 @@
 </head>
 <body>
   <h1>taskestimate1</h1>
-  <h2>user</h2>
-  {{> loginButtons}}
-  <h2>add task</h2>
-  <form class="new-task">
-    <input type="text" name="text" placeholder="Type to add new tasks" />
-  </form>
-  <h2>tasks</h2>
-  <table>
-    <tr>
-      <th>title</th>
-      <th>estimate time</th>
-    </tr>
-    {{#each tasks}}
-    {{> task}}
-    {{/each}}
-  </table>
+
+  <div class="user">
+    <h2>user</h2>
+    {{> loginButtons}}
+  </div>
+
+  <div class="taskPackages">
+
+    <h2>add task package</h2>
+    <form class="new-task-package">
+      <input type="text" name="text" placeholder="Type to add new task packages" />
+    </form>
+
+    <h2>task packages</h2>
+    <table>
+      <tr>
+	<th>title</th>
+      </tr>
+      {{#each taskPackages}}
+      {{> taskPackage}}
+      {{/each}}
+    </table>
+
+  </div>
+
+  <div class="tasks">
+
+    <h2>add task</h2>
+    <form class="new-task">
+      <input type="text" name="text" placeholder="Type to add new tasks" />
+    </form>
+
+    <h2>tasks</h2>
+    <table>
+      <tr>
+	<th>title</th>
+	<th>estimate time</th>
+      </tr>
+      {{#each tasks}}
+      {{> task}}
+      {{/each}}
+    </table>
+
+  </div>
+
 </body>
+
+<template name="taskPackage">
+  <tr>
+    <td class="{{#if checked}}checked{{/if}}">
+      <button class="delete">&times;</button>
+      <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+      <span class="text">{{title}}</span>
+    </td>
+    <td>
+      <input class="estimateTime" value="{{estimateTime}}">
+    </td>
+  </tr>
+</template>
 
 <template name="task">
   <tr>
