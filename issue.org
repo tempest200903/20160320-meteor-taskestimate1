@@ -3,4 +3,7 @@
 - ログインする。
 ** %2 Collection Tasks
 - コレクション Tasks を作る。
-
+** %3 Add tasks form
+- Task を追加するフォーム。
+** %4 Remote tassk form
+- Task を削除するフォーム。

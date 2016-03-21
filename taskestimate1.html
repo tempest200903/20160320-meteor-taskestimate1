@@ -5,6 +5,10 @@
   <h1>taskestimate1</h1>
   <h2>user</h2>
   {{> loginButtons}}
+  <h2>add task</h2>
+  <form class="new-task">
+    <input type="text" name="text" placeholder="Type to add new tasks" />
+  </form>
   <h2>tasks</h2>
   <ul>
     {{#each tasks}}
@@ -14,5 +18,9 @@
 </body>
 
 <template name="task">
-  <li>{{title}}</li>
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <span class="text">{{title}}</span>
+  </li>
 </template>
