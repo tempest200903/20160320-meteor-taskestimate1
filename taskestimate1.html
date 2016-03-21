@@ -5,5 +5,14 @@
   <h1>taskestimate1</h1>
   <h2>user</h2>
   {{> loginButtons}}
+  <h2>tasks</h2>
+  <ul>
+    {{#each tasks}}
+    {{> task}}
+    {{/each}}
+  </ul>
 </body>
 
+<template name="task">
+  <li>{{title}}</li>
+</template>
